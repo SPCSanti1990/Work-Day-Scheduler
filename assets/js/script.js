@@ -9,13 +9,30 @@ $(function () {
   // time-block containing the button that was clicked? How might the id be
   // useful when saving the description in local storage?
   //
+  // Handle saving text in the textarea to local storage
+
+  $(".saveBtn").on("click", function () {
+    let text = $(this).siblings(".description").val();
+    let time = $(this).parent().attr("id");
+
+    localStorage.setItem(time, text);
+  })
+   // Load saved text from local storage
+   $("#hour9 .description").val(localStorage.getItem("nineAM"));
+   $("#hour10 .description").val(localStorage.getItem("tenAM"));
+   $("#hour11 .description").val(localStorage.getItem("elevenAM"));
+   $("#hour12 .description").val(localStorage.getItem("twelvePM"));
+   $("#hour13 .description").val(localStorage.getItem("onePM"));
+   $("#hour14 .description").val(localStorage.getItem("twoPM"));
+   $("#hour15 .description").val(localStorage.getItem("threePM"));
+   $("#hour16 .description").val(localStorage.getItem("fourPM"));
+   $("#hour17 .description").val(localStorage.getItem("fivePM"));
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
   // attribute of each time-block be used to conditionally add or remove the
   // past, present, and future classes? How can Day.js be used to get the
   // current hour in 24-hour time?
-  let todayTime = dayjs().format('MMM, D YYYY, h:mm:ss');
-  $('#currentDay').text(todayTime);
+
   // If current time is > time block change row color to past color in css file
   // If current time is = time block change row color to present color in css file
   // If current time is < time block change row color to future color in css file
@@ -23,10 +40,16 @@ $(function () {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
+  // Handle saving text in the textarea to local storage
+ 
+
+  // Load saved text from local storage
+
   //
-  // TODO: Add code to display the current date in the header of the page.
-  //
-  // Create a row for each time
-  // Within each row create column that shows the time, place for event input, and save button
-  // When save button is clicked the event is saved in local storage
+  // Function to keep current time and date updated on screen
+    function clock() {
+      let todayTime = dayjs().format('MMM, D YYYY, h:mm:ss');
+      $('#currentDay').text(todayTime);
+    }
+    setInterval(function(){clock();},1000);
 });
