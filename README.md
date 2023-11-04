@@ -7,4 +7,4 @@ A work day planner with normal buisness hours of opperation times (9AM to 5PM) a
 <img alt="screenshot of the website" src="./assets/img/Screenshot 2023-11-04 182917.png">
 
 ## Links
-[Link to website]()
+[Link to website](https://spcsanti1990.github.io/Work-Day-Scheduler/)
